@@ -914,7 +914,26 @@
       coend;
     注意：P操作和V操作在执行路径上一定要《一一匹配》
       
-
+  PV操作与进程同步
+    生产者消费者问题
+    process producer {
+      L1:
+      produce a product;
+      P(sput);
+      B = product;
+      V(sget);
+      goto L1;
+    }
+    process consumer {
+      L2:
+      P(sget);
+      Product = B;
+      V(sput);
+      consume a product;
+      goto L2;
+    }
+    多生产者多消费者多缓冲区？
+    苹果橘子问题
 
 
 
